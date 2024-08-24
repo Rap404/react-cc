@@ -1,7 +1,13 @@
 import React from "react";
 import Logo from "../assets/logo.png";
+import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
+  const linkClass = ({ isActive }) =>
+    isActive
+      ? "bg-black text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+      : "text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2";
   return (
     <nav className="bg-indigo-700 border-b border-indigo-500">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -15,24 +21,15 @@ const Navbar = () => {
             </a>
             <div className="md:ml-auto">
               <div className="flex space-x-2">
-                <a
-                  to="/"
-                  className="bg-black text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
-                >
+                <NavLink to="/" className={linkClass}>
                   Home
-                </a>
-                <a
-                  to="/jobs"
-                  className="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
-                >
+                </NavLink>
+                <NavLink to="/jobs" className={linkClass}>
                   Jobs
-                </a>
-                <a
-                  to="/add-job"
-                  className="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
-                >
+                </NavLink>
+                <NavLink to="/add-job" className={linkClass}>
                   Add Job
-                </a>
+                </NavLink>
               </div>
             </div>
           </div>
